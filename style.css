@@ -212,6 +212,7 @@ header .nav-login a {
     width: 400px;
     margin: 0 auto;
     padding-top: 30px;
+    text-align: center;
 }
 
 .signup-form input {
@@ -228,7 +229,7 @@ header .nav-login a {
 }
 
 .signup-form button {
-    display: block;
+    display: inline-block;
     margin: 30px auto;
     width: 30%;
     height: 40px;

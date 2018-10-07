@@ -23,7 +23,8 @@
 						echo '<form action="includes/logout.inc.php" method="POST">
 						<button type="submit" name="submit">Logout</button>
 						</form>
-						<a href="profile.php">Profile</a>';
+						<a href="profile.php">Profile</a>
+						<a href="basket.php">Basket</a>';
 					} else {
 						echo '<form action="includes/login.inc.php" method="POST">
 						<input type="text" name="username" placeholder="Username/e-mail">

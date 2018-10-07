@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                     $_SESSION['u_last'] = $row['user_last'];
                     $_SESSION['u_email'] = $row['user_email'];
                     $_SESSION['u_username'] = $row['user_username'];
-                    header("Location: ../index.php?login=success");
+                    header("Location: ../products.php?login=success");
                     exit();
                 }
             } 

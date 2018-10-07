@@ -1,5 +1,6 @@
 <?PHP
-	include_once 'header.php';
+    include_once 'header.php';
+    session_start();
 ?>
 
 <section class="main-container">
@@ -16,7 +17,10 @@
             if(isset($_SESSION['u_username'])){echo $_SESSION['u_username'];}?>">
             <input type="password" name="oldpassword" placeholder="Old Password">
             <input type="password" name="newpassword" placeholder="New Password">
-            <button type="submit" name="submit">Update</button>
+            <div class="profile-button">
+                <button type="submit" name="submit">Update</button>
+                <button type="submit" name="delete">Delete</button>
+            </div>
         </form>
 	</div>
 </section>
@@ -24,11 +28,3 @@
 <?PHP
 	include_once 'footer.php';
 ?>
-
-
-
-                    <!-- $_SESSION['u_id'] = $row['user_id'];
-                    $_SESSION['u_first'] = $row['user_first'];
-                    $_SESSION['u_last'] = $row['user_last'];
-                    $_SESSION['u_email'] = $row['user_email'];
-                    $_SESSION['u_username'] = $row['user_username']; -->

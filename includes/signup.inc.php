@@ -1,5 +1,4 @@
 <?PHP
-
 if (isset($_POST['submit'])) {
 
     include_once 'dbh.inc.php';
@@ -40,7 +39,7 @@ if (isset($_POST['submit'])) {
                     $sql = "INSERT INTO users (user_first, user_last, user_email, user_username, 
                         user_password) VALUES ('$first', '$last', '$email', '$username', '$hashedPwd');";
                     mysqli_query($conn, $sql);
-                    header("Location: ../signup.php?=success");
+                    header("Location: ../index.php?signup=success");
                     exit();
                 }
             }

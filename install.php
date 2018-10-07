@@ -40,5 +40,58 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
+// ADD PRODUCTS
+
+// sql to create table for products
+$sql = "SELECT 1 FROM products LIMIT 1";
+if (mysqli_query($conn, $sql)) {
+
+} else {
+    $sql = "CREATE TABLE IF NOT EXISTS products (
+        prod_id int(11) not null AUTO_INCREMENT PRIMARY KEY, 
+        prod_name VARCHAR(256) not null,
+        prod_price int(11) not null,
+        prod_img VARCHAR(256) not null
+        )";
+    
+    if (mysqli_query($conn, $sql)) {
+    
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('Apple Airpods', '3000', './img/1.png');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('iPhone 6', '6750', './img/2.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('iPhone 5 case', '300', './img/3.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('iPhone 6 case', '325', './img/4.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('Skullcandy JIB', '400', './img/5.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('iPhone 5', '3500', './img/6.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('Samsung S7', '8750', './img/7.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('Samsung S6 case', '280', './img/8.jpg');";
+        mysqli_query($conn, $sql);
+        $sql = "INSERT INTO products (prod_name, prod_price, prod_img) VALUES ('Samsung headphones', '495', './img/9.jpeg');";
+        mysqli_query($conn, $sql);
+    
+    } else {
+        echo "Error creating table: " . mysqli_error($conn);
+    }
+}
+    
+    // sql to create table for baskets
+$sql = "CREATE TABLE IF NOT EXISTS basket (
+    basket_id int(11) not null AUTO_INCREMENT PRIMARY KEY, 
+    user_name VARCHAR(256) not null,
+    prod_id int(11) not null,
+    prod_qty int(11) not null
+    )";
+        
+if (mysqli_query($conn, $sql)) {
+    
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
 mysqli_close($conn);
 ?>
