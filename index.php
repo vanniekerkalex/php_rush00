@@ -1,4 +1,5 @@
 <?PHP
+	require_once 'install.php';
 	include_once 'header.php';
 ?>
 

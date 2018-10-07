@@ -13,17 +13,17 @@ if (isset($_POST['submit'])) {
     //Error handlers
     //Check for empty fields
     if (empty($first) || empty($last) || empty($email) || empty($username) || empty($password)) {
-        header("Location: ../signup.php=empty");
+        header("Location: ../signup.php?=empty");
         exit();
     } else {
         //Check if input chars are valid
-        if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
-            header("Location: ../signup.php=invalid");
+        if (!preg_match("/^[a-zA-Z\s]*$/", $first) || !preg_match("/^[a-zA-Z\s]*$/", $last)) {
+            header("Location: ../signup.php?=invalid");
             exit();
         } else {
             //Check if email is valid
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                header("Location: ../signup.php=email");
+                header("Location: ../signup.php?=email");
                 exit();
             } else {
                 $sql = "SELECT * FROM users WHERE user_username='$username'";
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
                 $resultCheck = mysqli_num_rows($result);
 
                 if ($resultCheck > 0) {
-                    header("Location: ../signup.php=usertaken");
+                    header("Location: ../signup.php?=usertaken");
                     exit();
                 } else {
                     //Hashing password
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                     $sql = "INSERT INTO users (user_first, user_last, user_email, user_username, 
                         user_password) VALUES ('$first', '$last', '$email', '$username', '$hashedPwd');";
                     mysqli_query($conn, $sql);
-                    header("Location: ../signup.php=success");
+                    header("Location: ../signup.php?=success");
                     exit();
                 }
             }
